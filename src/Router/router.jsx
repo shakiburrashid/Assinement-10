@@ -6,6 +6,9 @@ import Collection from '../Pages/Collection'
 import About from '../Pages/About'
 import Privacy_policy from '../Pages/Privacy_policy'
 import Contact from '../Pages/Contact'
+import AuthLayout from '../Layout/AuthLayout'
+import Login from '../Components/Login'
+import Register from '../Components/Register'
  
 const router = createBrowserRouter([
     {
@@ -37,6 +40,20 @@ const router = createBrowserRouter([
     {
         path: '*',
         element: <div><h1>404 Not Found</h1></div>
+    },
+    {
+        path:'/auth',
+        Component: AuthLayout,
+        children: [
+            {
+                path: '/auth/login',
+                Component: Login
+            },
+            {
+                path: '/auth/register',
+                Component: Register
+            }
+        ]
     }
   ])
 export default router

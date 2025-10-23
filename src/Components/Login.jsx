@@ -37,10 +37,10 @@ const Login = () => {
           <form onSubmit={handleLogin} className="flex justify-center items-center mt-4">
             <fieldset className="fieldset w-150 h-100 place-content-center flex flex-col gap-3">
               <label className="label text-xl font-bold">Email</label>
-              <input name='email' type="email" className="input w-150 h-13  outline-none bg-gray-100" placeholder="Email" />
+              <input name='email' required type="email" className="input w-150 h-13  outline-none bg-gray-100" placeholder="Email" />
               <label className="label text-xl font-bold">Password</label>
               <div className='relative'>
-                <input name='password' type={showPassword ? "text" : "password"} className="input w-150 h-13 outline-none bg-gray-100" placeholder="Password" />
+                <input name='password' required type={showPassword ? "text" : "password"} className="input w-150 h-13 outline-none bg-gray-100" placeholder="Password" />
                 <button type='button' className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={passwordShow}>
                   {showPassword ? <FaEyeSlash size={25} /> : <FaEye size={25} />}
                 </button>

@@ -45,17 +45,17 @@ const Register = () => {
             <fieldset className="fieldset w-150 h-160 place-content-center flex flex-col gap-3">
               {/* Name */}
               <label className="label text-xl font-bold">Name</label>
-              <input type="text" name='name' className="input w-150 h-13  outline-none bg-gray-100" placeholder="Name" />
+              <input type="text" name='name' required className="input w-150 h-13  outline-none bg-gray-100" placeholder="Name" />
               {/* Photo URL */}
               <label className="label text-xl font-bold">Photo URL</label>
               <input type="text" name='photo' className="input w-150 h-13  outline-none bg-gray-100" placeholder="Photo URL" />
               {/* Email */}
               <label className="label text-xl font-bold">Email</label>
-              <input type="email" name='email' className="input w-150 h-13  outline-none bg-gray-100" placeholder="Email" />
+              <input type="email" name='email' required className="input w-150 h-13  outline-none bg-gray-100" placeholder="Email" />
               {/* Password */}
               <label className="label text-xl font-bold">Password</label>
               <div className='relative'>
-                <input name='password' type={showPassword ? "text" : "password"} className='input w-150 h-13 outline-none bg-gray-100' placeholder="Password" />
+                <input name='password' required type={showPassword ? "text" : "password"} className='input w-150 h-13 outline-none bg-gray-100' placeholder="Password" />
                 <button type='button' className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointerhohoiuyho" onClick={passwordShow}>
                   {showPassword ? <FaEyeSlash size={25} /> : <FaEye size={25} />}
                 </button>

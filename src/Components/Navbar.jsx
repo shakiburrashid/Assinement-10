@@ -5,10 +5,10 @@ import '../index.css'
 const Navbar = () => {
     const link = <>
         <>
-            <NavLink to="/"> <li className='ml-4'>Home</li></NavLink>
-            <NavLink to="/collection"> <li className='ml-4'>Collection</li></NavLink>
-            <NavLink to="/about"> <li className='ml-4'>About us</li></NavLink>
-            <NavLink to="/privacy"> <li className='ml-4'>Privacy Policy</li></NavLink>
+            <NavLink to="/"> <li className='ml-4 hover:underline'>Home</li></NavLink>
+            <NavLink to="/collection"> <li className='ml-4 hover:underline'>Collection</li></NavLink>
+            <NavLink to="/about"> <li className='ml-4 hover:underline'>About us</li></NavLink>
+            <NavLink to="/privacy"> <li className='ml-4 hover:underline'>Privacy Policy</li></NavLink>
         </>
     </>
     return (

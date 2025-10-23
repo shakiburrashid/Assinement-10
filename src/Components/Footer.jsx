@@ -3,7 +3,7 @@ import logo from '../assets/Logo.png'
 import { NavLink } from 'react-router-dom'
 const Footer = () => {
     return (
-        <div className='mt-130'>
+        <div className='mt-10'>
             <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
                 <nav className="grid grid-flow-col gap-4">
                     <NavLink to="/about" className="link link-hover">About us</NavLink>

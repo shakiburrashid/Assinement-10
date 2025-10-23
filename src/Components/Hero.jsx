@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {use} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Navigation, Pagination, Autoplay } from 'swiper';
 
@@ -9,8 +9,9 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { AuthContext } from '../Context/AuthProvider';
 const Hero = () => {
-
+    const { user } = use(AuthContext);
     return (
         <div>
             <Swiper
@@ -28,6 +29,7 @@ const Hero = () => {
                 <SwiperSlide className=''><img className='m-auto' src="https://i.ibb.co.com/B2M84wFg/2.png" alt="Hero Image 2" /></SwiperSlide>
                 <SwiperSlide className=''><img className='m-auto' src="https://i.ibb.co.com/LDK0C8n3/1.png" alt="Hero Image 3" /></SwiperSlide>
             </Swiper>
+            <h1 className='text-4xl'>{user && user.name}</h1>
         </div>
     )
 }

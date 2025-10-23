@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { use } from 'react'
 import logo from '../assets/Logo.png'
 import { Link, NavLink } from 'react-router-dom'
 import '../index.css'
+import { AuthContext } from '../Context/AuthProvider'
+import { RxAvatar } from 'react-icons/rx'
 const Navbar = () => {
     const link = <>
         <>
@@ -11,6 +13,15 @@ const Navbar = () => {
             <NavLink to="/privacy"> <li className='ml-4 hover:underline text-[18px]'>Privacy Policy</li></NavLink>
         </>
     </>
+    const { user, logout } = use(AuthContext);
+    const signout = () => {
+        logout()
+            .then(() => {
+                alert('Logged out successfully');
+            })
+    }
+
+
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm">
@@ -23,9 +34,10 @@ const Navbar = () => {
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             {link}
+
                         </ul>
                     </div>
-                    <img className='w-35' src={logo} alt="Logo" />
+                    <Link to={'/'}>  <img className='w-35' src={logo} alt="Logo" /></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -37,10 +49,11 @@ const Navbar = () => {
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar relative group inline-block ml-2">
                             <div className="w-10 rounded-full ">
                                 <img
-                                    alt="Tailwind CSS Navbar component"
-                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    alt="User Avatar"
+                                    src={user ? user.photoURL : 'https://i.ibb.co.com/gZDr8JVQ/266033.png'} />
+
                             </div>
-                            <span className="absolute -right-15 mt-2 w-40 h-10 rounded-xl place-content-center p-2 hidden group-hover:block bg-gray-700 text-white text-sm">Shakibur Rashid</span>
+                            <span className="absolute -right-15 mt-2 w-40 h-10 rounded-xl place-content-center p-2 hidden group-hover:block bg-gray-700 text-white text-sm">{user && user.displayName}</span>
                         </div>
                         <ul
                             tabIndex="-1"
@@ -50,7 +63,11 @@ const Navbar = () => {
                             <li><a>Logout</a></li>
                         </ul>
                     </div>
-                    <Link to="/auth/login" className="btn btn-primary text-white">Login</Link>
+                    {user ? (
+                        <button onClick={signout} className="btn btn-primary text-white">Logout</button>
+                    ) : (
+                        <Link to="/auth/login" className="btn btn-primary text-white">Login</Link>
+                    )}
                 </div>
             </div>
         </div>

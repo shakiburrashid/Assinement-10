@@ -15,7 +15,6 @@ const Home = () => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
-    console.log(name, email);
     toast.success('Form submitted successfully!');
   }
   return (
@@ -25,7 +24,7 @@ const Home = () => {
         <h1 className='text-center font-bold text-4xl mt-10'>Step By Step Grow Your Skill</h1>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 my-10 w-11/12 m-auto'>
           {
-            cardData.slice(0, 6).map(card => <Card_for_home key={card.id} card={card} />)
+            cardData.slice(0, 6).map(card => <Card_for_home key={card.skillId} card={card} />)
           }
         </div>
         <button onClick={more} className='btn btn-primary mt-15 flex m-auto w-40 text-2xl h-18 rounded-2xl'> More</button>

@@ -1,11 +1,12 @@
 import React from 'react'
 import logo from '../assets/Logo.png'
 import { NavLink } from 'react-router-dom'
+import '../index.css'
 const Navbar = () => {
     const link = <>
-         <>
+        <>
             <NavLink to="/"> <li className='ml-4'>Home</li></NavLink>
-            <NavLink to="/more"> <li className='ml-4'>More</li></NavLink>
+            <NavLink to="/collection"> <li className='ml-4'>Collection</li></NavLink>
             <NavLink to="/about"> <li className='ml-4'>About us</li></NavLink>
             <NavLink to="/privacy"> <li className='ml-4'>Privacy Policy</li></NavLink>
         </>
@@ -36,7 +37,13 @@ const Navbar = () => {
                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                         </div>
                     </div>
-                    <ul
+
+                   
+                    <div>
+                        <div className="btn">Sign Up</div>
+                        <div className="btn">Login</div>
+                    </div>
+                     <ul
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const More = () => {
+const Collection = () => {
   return (
     <div>
         <h1>More Page</h1>
@@ -8,4 +8,4 @@ const More = () => {
   )
 }
 
-export default More
+export default Collection

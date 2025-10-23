@@ -2,9 +2,10 @@ import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import Root from '../Layout/Root'
 import Home from '../Pages/Home'
-import More from '../Pages/More'
+import Collection from '../Pages/Collection'
 import About from '../Pages/About'
 import Privacy_policy from '../Pages/Privacy_policy'
+import Contact from '../Pages/Contact'
  
 const router = createBrowserRouter([
     {
@@ -12,12 +13,12 @@ const router = createBrowserRouter([
         Component: Root,
         children: [
             {
-                path: '',
+                index: true,
                 Component: Home 
             },
             {
-                path: '/more',
-                Component: More
+                path: '/collection',
+                Component: Collection
             },
             {
                 path: '/about',
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: '/privacy',
                 Component: Privacy_policy 
+            },
+            {
+                path:'/contact',
+                Component: Contact
             }
         ]
     },

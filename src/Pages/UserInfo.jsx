@@ -9,11 +9,11 @@ const UserInfo = () => {
       <h1 className='text-center mt-20 font-bold text-4xl '>Your Profile</h1>
       <div className='flex items-center h-50 justify-center gap-10 max-md:flex-col max-md:items-center max-md:justify-center max-md:mt-20'>
         <div>
-          <img className='rounded-full w-30 h-30' src={user.photoURL} alt="" />
+          <img className='rounded-full w-30 h-30' src={user && user?.photoURL} alt="" />
         </div>
         <div className='space-y-4 max-md:text-center'>
-          <p>Name: {user.displayName}</p>
-          <p>Email: {user.email}</p>
+          <p>Name: {user && user?.displayName}</p>
+          <p>Email: {user && user?.email}</p>
         <Link to={'/userinfo/update'} className='btn'>Update Profile</Link>
         </div>
       </div>

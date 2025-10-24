@@ -59,7 +59,7 @@ const Login = () => {
     <div className="flex min-h-screen flex-col items-center justify-center p-4 mt-10">
       <div className="card bg-base-100  shrink-0 shadow-xl max-md:h-165">
         <div className="card-body max-md:w-80 max-md:h-150">
-          <h1 className='font-bold text-center text-4xl italic max-md:text-xl'>Register your account</h1>
+          <h1 className='font-bold text-center text-4xl italic max-md:text-xl'>Login your account</h1>
           <form onSubmit={handleLogin} className="flex justify-center items-center mt-2">
             <fieldset className="fieldset gap-3">
 
@@ -75,7 +75,7 @@ const Login = () => {
                 </button>
               </div>
               <Link to={'/pass-reset'} className='text-sm link-hover cursor-pointer'>Forget Password?</Link>
-              <button type='submit' className="btn btn-neutral mt-4 w-70 m-auto">Register</button>
+              <button type='submit' className="btn btn-neutral mt-4 w-70 m-auto">Login</button>
 
               {/* w-150 h-13 */}
               <p className='text-red-500 text-center text-xl'>{error}</p>

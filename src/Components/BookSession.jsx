@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify';
 
 const BookSession = () => {
+    // const [book,setBook] = useState('')
     const submitData = (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
+        // setBook(name,email)
+        event.target.reset();
         toast.success('Form submitted successfully!');
     }
     return (

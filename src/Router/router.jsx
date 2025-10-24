@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         Component: Root,
         children: [
             {
-                index: true,
+                path: '/',
                 Component: Home
             },
             {
@@ -36,11 +36,6 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 Component: Contact
-            },
-            {
-                path: '/collection/:id',
-                Component: PrivateRoute,
-                loader: () => fetch('Course.json')
             }
         ]
     },
@@ -61,6 +56,13 @@ const router = createBrowserRouter([
                 Component: Register
             }
         ]
+    },
+    {
+        path: '/collection/:id',
+        element: (<PrivateRoute>
+            <Collection_Details />
+        </PrivateRoute>),
+        loader: () => fetch('/Course.json')
     }
 ])
 export default router

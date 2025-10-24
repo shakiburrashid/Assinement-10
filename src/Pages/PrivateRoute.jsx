@@ -1,16 +1,24 @@
 import React, { use } from 'react'
 import Collection_Details from './Collection_Details'
 import { AuthContext } from '../Context/AuthProvider'
-import Login from '../Components/Login'
+import { Navigate, useLocation } from 'react-router-dom'
+import Loader from './Loader'
 
-const PrivateRoute = () => {
-  const { user } = use(AuthContext) 
+const PrivateRoute = ({ children }) => {
+  const { user, loading } = use(AuthContext)
+  const location = useLocation();
 
-  if (user && user.email) {
-    return <Collection_Details />
-  } else {
-    return <Login />
+  if (loading) {
+    return <Loader />
   }
+
+
+  if (user && user?.email) {
+    return children;
+  }
+
+  return <Navigate state={location.pathname} to="/auth/login"></Navigate>
+
 
 }
 

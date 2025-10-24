@@ -1,11 +1,12 @@
 import React, { use, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 
 const Register = () => {
+  const navigate = useNavigate()
   const [error, setError] = useState('');
   const { RegisterAccount, setUser } = use(AuthContext);
   const handleRegistation = (e) => {
@@ -23,12 +24,14 @@ const Register = () => {
       return;
     }
 
-    RegisterAccount(email, password).then((result) => {
+    RegisterAccount(email, password)
+    .then((result) => {
       const user = result.user
       updateProfile(user, { displayName: name, photoURL: photo });
       console.log(user);
       setUser(user);
       toast.success('Registration Successful');
+      navigate('/auth/login');
     })
       .catch((error) => {
         const errorMessage = error.message;
@@ -42,8 +45,6 @@ const Register = () => {
   const passwordShow = () => {
     setShowPassword(!showPassword);
   }
-
-
 
 
   return (
@@ -76,7 +77,7 @@ const Register = () => {
                 <input type="checkbox" name='checkbox' className="checkbox text-xl" />
                 Accept Terms & Conditions
               </label>
-              <button type='submit' className="btn btn-neutral mt-4 w-150 h-13 ">Login</button>
+              <button type='submit' className="btn btn-neutral mt-4 w-150 h-13 ">Register</button>
               <Link to={'/auth/login'} className='text-xl text-center'>Already have An Account ? <span className='text-red-500 link-hover cursor-pointer font-bold'>Login</span></Link>
               <p className='text-red-500 text-center text-xl'>{error}</p>
               <ToastContainer />

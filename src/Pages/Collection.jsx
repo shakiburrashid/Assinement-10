@@ -1,12 +1,18 @@
 import React, { use } from 'react'
 import Card_for_collection from '../Components/Card_for_collection';
+import { AuthContext } from '../Context/AuthProvider';
+import Loader from './Loader';
 
 
 
 
-const CardData1 = fetch('Course.json').then(res => res.json());
+const CardData1 = fetch('/Course.json').then(res => res.json());
 
 const Collection = () => {
+  const { loading } = use(AuthContext); 
+  if (loading) {
+    return <Loader />;
+  }
   const cardData = use(CardData1);
   return (
     <div className='grid grid-cols-1 md:grid-cols-3 gap-3 my-10 w-10/12 m-auto'>

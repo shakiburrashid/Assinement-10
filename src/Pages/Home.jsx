@@ -3,9 +3,15 @@ import Hero from '../Components/Hero'
 import Card_for_home from '../Components/Card_for_home'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import Loader from './Loader';
+import { AuthContext } from '../Context/AuthProvider';
 
 const CardData = fetch('/Course.json').then(res => res.json());
 const Home = () => {
+  const { loading } = use(AuthContext);
+  if (loading) {
+    return <Loader />;
+  } 
   const cardData = use(CardData);
   const navigate = useNavigate();
   const more = () => {
@@ -40,7 +46,7 @@ const Home = () => {
               <label className="label text-xl max-md:text-sm text-white font-bold">Email</label>
               <input type="email" className="input w-200 h-15 text-xl max-md:w-80 max-md:h-10 max-md:text-" placeholder="Enter your email" name='email' required  />
             </fieldset>
-            <button className="btn btn-neutral mt-4 w-50 h-15 text-xl max-md:h-10 max-md:w-25">Login</button>
+            <button className="btn btn-neutral mt-4 w-50 h-15 text-xl max-md:h-10 max-md:w-25">Submit</button>
           </form>
         </div>
       </div>

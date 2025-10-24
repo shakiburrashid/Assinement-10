@@ -1,17 +1,26 @@
 import React, { use, useEffect, useState } from 'react'
+import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
+import Loader from './Loader';
 
 const Collection_Details = () => {
-    const [DetailsData, setDetailsData] = useState({});
+    const { loading } = use(AuthContext);
+    
     const data = useLoaderData();
     const { id } = useParams();
+    if (loading) {
+        return <Loader />
+    }
+    const [DetailsData, setDetailsData] = useState({});
+    // const {loading} = use(AuthContext);
     useEffect(() => {
-        const detailsItem = data.find(item => item.skillId == id);
+        const detailsItem = data.find((item) => item.skillId == id);
         setDetailsData(detailsItem)
     }, [data, id])
     const { skillName, providerName, providerEmail, price, rating, slotsAvailable, description, image } = DetailsData;
-    console.log(data, id, DetailsData)
-    console.log(data, id)
+    // console.log(data, id, DetailsData)
+    // console.log(data, id)
     return (
         <div className='flex flex-col justify-center items-center my-12'>
             <div className=' w-250 max-md:w-80 '>
@@ -21,7 +30,7 @@ const Collection_Details = () => {
                     <h1 className='text-left'>Provider Name: {providerName} </h1>
                     <h1 className='text-left'>Provider Email: {providerEmail} </h1>
                     <h1>Price: {price}</h1>
-                    <h1>Rating: {rating}</h1>
+                    <h1 className='flex gap-2 items-center'>Rating: ({rating})</h1>
                     <h1>Slots Available: {slotsAvailable}</h1>
                     <p className='w-150 text-left'>Description: {description}</p>
                     <Link to={`/collection`} className='btn btn-accent mt-3 flex m-auto w-30 text-white'>Back</Link>

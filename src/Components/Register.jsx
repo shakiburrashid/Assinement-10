@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Register = () => {
-    const [error, setError] = useState('');
+  const [error, setError] = useState('');
   const { RegisterAccount, setUser } = use(AuthContext);
   const handleRegistation = (e) => {
     e.preventDefault();
@@ -14,17 +15,26 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    const checkbox = form.checkbox.checked;
+    console.log(checkbox)
+    if (!checkbox) {
+      setError("Please Accept Terms & Conditions");
+      toast.error("Please Accept Terms & Conditions");
+      return;
+    }
 
     RegisterAccount(email, password).then((result) => {
       const user = result.user
       updateProfile(user, { displayName: name, photoURL: photo });
       console.log(user);
       setUser(user);
+      toast.success('Registration Successful');
     })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
         setError("Email Already in use, Please add a new email");
+        toast.error("Email Already in use, Please add a new email");
       });
   }
 
@@ -63,12 +73,13 @@ const Register = () => {
               <label className="label text-xl flex items-center gap-2">
 
 
-                <input type="checkbox" className="checkbox text-xl" />
+                <input type="checkbox" name='checkbox' className="checkbox text-xl" />
                 Accept Terms & Conditions
               </label>
               <button type='submit' className="btn btn-neutral mt-4 w-150 h-13 ">Login</button>
               <Link to={'/auth/login'} className='text-xl text-center'>Already have An Account ? <span className='text-red-500 link-hover cursor-pointer font-bold'>Login</span></Link>
-              <p className='text-red-500 text-center'>{error}</p>
+              <p className='text-red-500 text-center text-xl'>{error}</p>
+              <ToastContainer />
             </fieldset>
 
           </form>

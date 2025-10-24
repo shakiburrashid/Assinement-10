@@ -11,6 +11,7 @@ const Navbar = () => {
             <NavLink to="/collection"> <li className='ml-4 hover:underline text-[18px]'>Collection</li></NavLink>
             <NavLink to="/about"> <li className='ml-4 hover:underline text-[18px]'>About us</li></NavLink>
             <NavLink to="/privacy"> <li className='ml-4 hover:underline text-[18px]'>Privacy Policy</li></NavLink>
+            <NavLink to="/contact"> <li className='ml-4 hover:underline text-[18px]'>Contact Us</li></NavLink>
         </>
     </>
     const { user, logout } = use(AuthContext);

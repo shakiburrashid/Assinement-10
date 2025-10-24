@@ -11,8 +11,8 @@ const Footer = () => {
             <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
                 <nav className="grid grid-flow-col gap-4">
                     <NavLink to="/about" className="link link-hover">About us</NavLink>
-                    <NavLink to="/contact" className="link link-hover">Contact</NavLink>
                     <NavLink to="/privacy" className="link link-hover">Privacy Policy</NavLink>
+                    <NavLink to="/contact" className="link link-hover">Contact Us</NavLink>
                 </nav>
                 <nav>
                     <div className="grid grid-flow-col gap-4">

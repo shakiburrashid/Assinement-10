@@ -2,6 +2,7 @@ import React, { use, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
   const [error, setError] = useState('');
@@ -17,11 +18,13 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         setUser(user);
+        toast.success('Login Successful');
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
-        setError("Invalid Email or Password")
+        setError("Invalid Email or Password");
+        toast.error("Invalid Email or Password");
       });
   }
   const [showPassword, setShowPassword] = useState(false);
@@ -51,6 +54,7 @@ const Login = () => {
           </form>
           <Link to={'/auth/register'} className='text-xl text-center'>Dont’t Have An Account ? <span className='text-red-500 link-hover cursor-pointer font-bold'>Register</span></Link>
           <p className='text-red-500 text-center'>{error}</p>
+          <ToastContainer />
         </div>
       </div>
     </div>

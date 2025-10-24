@@ -9,7 +9,8 @@ import Contact from '../Pages/Contact'
 import AuthLayout from '../Layout/AuthLayout'
 import Login from '../Components/Login'
 import Register from '../Components/Register'
- 
+import Collection_Details from '../Pages/Collection_Details'
+
 const router = createBrowserRouter([
     {
         path: '/',
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                Component: Home 
+                Component: Home
             },
             {
                 path: '/collection',
@@ -25,15 +26,22 @@ const router = createBrowserRouter([
             },
             {
                 path: '/about',
-                Component: About 
+                Component: About
             },
             {
                 path: '/privacy',
-                Component: Privacy_policy 
+                Component: Privacy_policy
             },
             {
-                path:'/contact',
+                path: '/contact',
                 Component: Contact
+            },
+            {
+                path: '/collection/:id',
+                Component: Collection_Details,
+                // loader: ({params}) => fetch('/Course.json').then(res => res.json()).then(data => data.find(item => item.skillId === params.id) )
+                // loader: fetch('Course.json').then(res => res.json())
+                loader: () => fetch('Course.json')
             }
         ]
     },
@@ -42,7 +50,7 @@ const router = createBrowserRouter([
         element: <div><h1>404 Not Found</h1></div>
     },
     {
-        path:'/auth',
+        path: '/auth',
         Component: AuthLayout,
         children: [
             {
@@ -55,5 +63,5 @@ const router = createBrowserRouter([
             }
         ]
     }
-  ])
+])
 export default router

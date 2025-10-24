@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Card_for_collection = ({ card }) => {
     const { skillName, rating, price, image } = card;
@@ -15,7 +16,7 @@ const Card_for_collection = ({ card }) => {
                         </div>
                         <h1>Price: {price}</h1>
                     </div>
-                    <button className='btn btn-success mt-3 flex m-auto w-30 text-white'>Details</button>
+                    <Link to={`/collection/${card.skillId}`} className='btn btn-success mt-3 flex m-auto w-30 text-white'>Details</Link>
                 </div>
             </div>
         </div>

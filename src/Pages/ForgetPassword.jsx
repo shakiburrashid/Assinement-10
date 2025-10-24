@@ -2,6 +2,7 @@ import React, { use } from 'react'
 import { AuthContext } from '../Context/AuthProvider'
 import { toast, ToastContainer } from 'react-toastify'
 import { Link } from 'react-router-dom'
+import { IoMdArrowRoundBack } from 'react-icons/io'
 
 const ForgetPassword = () => {
   const { user, resetPassword } = use(AuthContext)
@@ -33,7 +34,7 @@ const ForgetPassword = () => {
             </fieldset>
           </form>
 
-          <Link to={'/auth/login'} className="btn btn-neutral mt-2 w-40">Back</Link>
+          <Link to={'/auth/login'} className="btn btn-neutral mt-2 w-40"><IoMdArrowRoundBack size={25} /></Link>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ const Collection = () => {
   }
   const cardData = use(CardData1);
   return (
-    <div className='grid grid-cols-1 md:grid-cols-3 gap-3 my-10 w-10/12 m-auto'>
+    <div className='grid max-md:grid-cols-1 max-lg:grid-cols-2 grid-cols-3 gap-3 max-lg:gap-5 my-10 w-11/12 m-auto'>
       {cardData.map(card => <Card_for_collection key={card.skillId} card={card} />)}
     </div>
   )

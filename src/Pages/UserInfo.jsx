@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const UserInfo = () => {
   const {user} = use(AuthContext);
-  console.log(user)
   return (
     <div className='flex flex-col items-center h-150'>
       <h1 className='text-center mt-20 font-bold text-4xl '>Your Profile</h1>

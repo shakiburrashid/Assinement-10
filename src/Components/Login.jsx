@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation();
   const [error, setError] = useState('');
-  const { LoginAccount, setUser, loginAccount_Google } = use(AuthContext);
+  const { LoginAccount, setUser, loginAccount_Google} = use(AuthContext);
 
   const handleGoogleLogin = (e) => {
     e.preventDefault();
@@ -21,19 +21,9 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
         toast.error('Google Login Failed');
       });
   }
-
-
-
-
-
-
-
-
-
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -48,17 +38,17 @@ const Login = () => {
     LoginAccount(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         setUser(user);
         toast.success('Login Successful');
         navigate(`${location.state ? location.state : '/'}`);
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
         setError("Invalid Email or Password");
         toast.error("Invalid Email or Password");
       });
+
+
   }
   const [showPassword, setShowPassword] = useState(false);
   const passwordShow = () => {
@@ -84,7 +74,7 @@ const Login = () => {
                   {showPassword ? <FaEyeSlash className='text-2xl' /> : <FaEye className='text-2xl' />}
                 </button>
               </div>
-              <h1 className='text-sm link-hover cursor-pointer'>Forget Password?</h1>
+              <Link to={'/pass-reset'} className='text-sm link-hover cursor-pointer'>Forget Password?</Link>
               <button type='submit' className="btn btn-neutral mt-4 w-70 m-auto">Register</button>
 
               {/* w-150 h-13 */}

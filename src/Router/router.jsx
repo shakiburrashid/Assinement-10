@@ -14,6 +14,7 @@ import PrivateRoute from '../Pages/PrivateRoute'
 import UserInfo from '../Pages/UserInfo'
 import UpdateUser from '../Pages/UpdateUser'
 import Loader from '../Pages/Loader'
+import ForgetPassword from '../Pages/ForgetPassword'
 
 const router = createBrowserRouter([
     {
@@ -74,7 +75,11 @@ const router = createBrowserRouter([
             <Collection_Details />
         </PrivateRoute>),
         loader: () => fetch('/Course.json'),
-        hydrateFallbackElement: <Loader/>
+        hydrateFallbackElement: <Loader />
+    },
+    {
+        path: '/pass-reset',
+        Component: ForgetPassword
     }
 ])
 export default router

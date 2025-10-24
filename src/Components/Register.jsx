@@ -21,7 +21,6 @@ const Register = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
         toast.error('Google Register Failed');
       });
   }
@@ -35,7 +34,6 @@ const Register = () => {
     const password = form.password.value;
     const checkbox = form.checkbox.checked;
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
-    console.log(checkbox)
     if (!checkbox) {
       setError("Please Accept Terms & Conditions");
       toast.error("Please Accept Terms & Conditions");
@@ -50,14 +48,12 @@ const Register = () => {
       .then((result) => {
         const user = result.user
         updateProfile(user, { displayName: name, photoURL: photo });
-        console.log(user);
         setUser(user);
         toast.success('Registration Successful');
         navigate('/auth/login');
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
         setError("Email Already in use, Please add a new email");
         toast.error("Email Already in use, Please add a new email");
       });

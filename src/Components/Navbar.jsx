@@ -21,12 +21,15 @@ const Navbar = () => {
             .then(() => {
                 toast.success('Logged out successfully');
             })
+            .catch((error) => {
+                toast.error('Error logging out');
+            });
     }
 
 
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar bg-base-100 shadow-sm px-10">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -65,15 +68,16 @@ const Navbar = () => {
                             <li><a>Logout</a></li>
                         </ul>
                     </div>
-                    <ToastContainer/>
                     {user ? (
                         <button onClick={signout} className="btn btn-primary text-white">Logout</button>
                     ) : (
                         <Link to="/auth/login" className="btn btn-primary text-white">Login</Link>
                     )}
-                    
+
                 </div>
             </div>
+            <ToastContainer />
+
         </div>
     )
 }

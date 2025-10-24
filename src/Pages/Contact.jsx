@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <div>
       <div className='w-full h-130 my-15 mb-10 flex flex-col items-center justify-center p-10 max-md:w-full  '>
-        <h1 className='text-center font-extrabold text-5xl'>Contact Us</h1>
+        <h1 className='text-center font-extrabold text-5xl underline'>Contact Us</h1>
         <form onSubmit={submitData} className='m-auto place-content-center'>
           <fieldset className="fieldset flex flex-col gap-4">
             <label className="label text-xl max-md:text-sm text-white font-bold">Name</label>

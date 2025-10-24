@@ -19,7 +19,7 @@ const Navbar = () => {
     const signout = () => {
         logout()
             .then(() => {
-                toast('Logged out successfully');
+                toast.success('Logged out successfully');
             })
     }
 
@@ -65,12 +65,13 @@ const Navbar = () => {
                             <li><a>Logout</a></li>
                         </ul>
                     </div>
+                    <ToastContainer/>
                     {user ? (
                         <button onClick={signout} className="btn btn-primary text-white">Logout</button>
                     ) : (
                         <Link to="/auth/login" className="btn btn-primary text-white">Login</Link>
                     )}
-                    <ToastContainer/>
+                    
                 </div>
             </div>
         </div>

@@ -11,6 +11,7 @@ import Login from '../Components/Login'
 import Register from '../Components/Register'
 import Collection_Details from '../Pages/Collection_Details'
 import PrivateRoute from '../Pages/PrivateRoute'
+import UserInfo from '../Pages/UserInfo'
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 Component: Home
+            },
+            {
+                path:'/userinfo',
+                Component: UserInfo
             },
             {
                 path: '/collection',

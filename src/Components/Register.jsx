@@ -34,10 +34,15 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const checkbox = form.checkbox.checked;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
     console.log(checkbox)
     if (!checkbox) {
       setError("Please Accept Terms & Conditions");
       toast.error("Please Accept Terms & Conditions");
+      return;
+    }
+    if (!passwordRegex.test(password)) {
+      setError("Password must contain at least one uppercase letter, lowercase letter, and be at least 6 characters long");
       return;
     }
 
@@ -98,7 +103,7 @@ const Register = () => {
               <button type='submit' className="btn btn-neutral mt-4 ">Register</button>
 
               {/* w-150 h-13 */}
-              <p className='text-red-500 text-center text-xl'>{error}</p>
+              <p className='text-red-500 text-center text-xl w-70 m-auto'>{error}</p>
               <ToastContainer />
             </fieldset>
           </form>

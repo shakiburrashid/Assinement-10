@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import '../index.css'
 import { AuthContext } from '../Context/AuthProvider'
 import { RxAvatar } from 'react-icons/rx'
+import { toast, ToastContainer } from 'react-toastify'
 const Navbar = () => {
     const link = <>
         <>
@@ -18,7 +19,7 @@ const Navbar = () => {
     const signout = () => {
         logout()
             .then(() => {
-                alert('Logged out successfully');
+                toast('Logged out successfully');
             })
     }
 
@@ -69,6 +70,7 @@ const Navbar = () => {
                     ) : (
                         <Link to="/auth/login" className="btn btn-primary text-white">Login</Link>
                     )}
+                    <ToastContainer/>
                 </div>
             </div>
         </div>

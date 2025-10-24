@@ -10,6 +10,7 @@ import AuthLayout from '../Layout/AuthLayout'
 import Login from '../Components/Login'
 import Register from '../Components/Register'
 import Collection_Details from '../Pages/Collection_Details'
+import PrivateRoute from '../Pages/PrivateRoute'
 
 const router = createBrowserRouter([
     {
@@ -38,9 +39,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/collection/:id',
-                Component: Collection_Details,
-                // loader: ({params}) => fetch('/Course.json').then(res => res.json()).then(data => data.find(item => item.skillId === params.id) )
-                // loader: fetch('Course.json').then(res => res.json())
+                Component: PrivateRoute,
                 loader: () => fetch('Course.json')
             }
         ]

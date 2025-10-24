@@ -19,10 +19,10 @@ const Navbar = () => {
     const signout = () => {
         logout()
             .then(() => {
-                toast.success('Logged out successfully');
+                alert('Logged out successfully');
             })
             .catch((error) => {
-                toast.error('Error logging out');
+                alert('Error logging out');
             });
     }
 
@@ -43,6 +43,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to={'/'}>  <img className='w-35' src={logo} alt="Logo" /></Link>
+                   
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -75,6 +76,7 @@ const Navbar = () => {
 
                 </div>
             </div>
+            
             <ToastContainer />
 
         </div>

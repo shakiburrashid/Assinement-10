@@ -1,5 +1,6 @@
 import React, { use } from 'react'
 import { AuthContext } from '../Context/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const UserInfo = () => {
   const {user} = use(AuthContext);
@@ -14,7 +15,7 @@ const UserInfo = () => {
         <div className='space-y-4 max-md:text-center'>
           <p>Name: {user.displayName}</p>
           <p>Email: {user.email}</p>
-        <button className='btn'>Update Profile</button>
+        <Link to={'/userinfo/update'} className='btn'>Update Profile</Link>
         </div>
       </div>
     </div>

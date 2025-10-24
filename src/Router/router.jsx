@@ -12,6 +12,8 @@ import Register from '../Components/Register'
 import Collection_Details from '../Pages/Collection_Details'
 import PrivateRoute from '../Pages/PrivateRoute'
 import UserInfo from '../Pages/UserInfo'
+import UpdateUser from '../Pages/UpdateUser'
+import Loader from '../Pages/Loader'
 
 const router = createBrowserRouter([
     {
@@ -23,8 +25,12 @@ const router = createBrowserRouter([
                 Component: Home
             },
             {
-                path:'/userinfo',
+                path: '/userinfo',
                 Component: UserInfo
+            },
+            {
+                path: '/userinfo/update',
+                Component: UpdateUser
             },
             {
                 path: '/collection',
@@ -67,7 +73,8 @@ const router = createBrowserRouter([
         element: (<PrivateRoute>
             <Collection_Details />
         </PrivateRoute>),
-        loader: () => fetch('/Course.json')
+        loader: () => fetch('/Course.json'),
+        hydrateFallbackElement: <Loader/>
     }
 ])
 export default router

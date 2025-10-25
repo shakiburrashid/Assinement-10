@@ -79,7 +79,7 @@ const Login = () => {
                 </button>
               </div>
               <Link to={'/pass-reset'} className='text-sm link-hover cursor-pointer'>Forget Password?</Link>
-              <button type='submit' className="btn btn-neutral mt-4 w-70 m-auto">Login</button>
+              <button type='submit' className="btn btn-neutral mt-4 w-full m-auto">Login</button>
 
               {/* w-150 h-13 */}
               <p className='text-red-500 text-center text-xl'>{error}</p>

@@ -6,7 +6,7 @@ const Card_for_collection = ({ card }) => {
     const { skillName, rating, price, image } = card;
     return (
         <div>
-            <div className='w-90 h-100 m-auto bg-gray-100 mt-10 shadow-xl p-5 rounded-xl'>
+            <div className=' w-90 h-100 m-auto bg-gray-100 mt-10 shadow-xl p-5 rounded-xl'>
                 <div className='space-y-4'>
                     <img className='w-80 h-45  object-cover rounded-xl' src={image} alt="" />
                     <div className='m-3'>

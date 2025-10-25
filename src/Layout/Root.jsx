@@ -7,6 +7,7 @@ import Collection_Details from '../Pages/Collection_Details'
 import UserInfo from '../Pages/UserInfo'
 import Loader from '../Pages/Loader'
 import ForgetPassword from '../Pages/ForgetPassword'
+import AnimateCard from '../Pages/AnimateCard'
 
 const Root = () => {
   const { state } = useNavigate()
@@ -15,6 +16,7 @@ const Root = () => {
       <Navbar />
       {state == 'loading' ? <Loader /> : <Outlet />}
       <Footer />
+      {/* <AnimateCard/> */}
       
     </>
   )

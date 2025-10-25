@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation();
   const [error, setError] = useState('');
-  const { LoginAccount, setUser, loginAccount_Google} = use(AuthContext);
+  const { LoginAccount, setUser, loginAccount_Google } = use(AuthContext);
 
   const handleGoogleLogin = (e) => {
     e.preventDefault();
@@ -30,23 +30,27 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
-    if (!passwordRegex.test(password)) {
-      setError("Password must contain at least one uppercase letter, lowercase letter, and be at least 6 characters long");
-      return;
+
+    try {
+      LoginAccount(email, password)
+        .then((result) => {
+          const user = result.user;
+          setUser(user);
+          navigate(`${location.state ? location.state : '/'}`);
+        })
+        .catch(() => {
+          setError("Invalid Email or Password");
+          toast.error("Invalid Email or Password");
+        })
+    } catch (error) {
+      
     }
-    LoginAccount(email, password)
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
-        toast.success('Login Successful');
-        navigate(`${location.state ? location.state : '/'}`);
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        setError("Invalid Email or Password");
-        toast.error("Invalid Email or Password");
-      });
+
+
+
+    // .catch((error) => {
+
+    // });
 
 
   }

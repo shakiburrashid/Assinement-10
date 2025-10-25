@@ -22,6 +22,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
+      
       <div>
         <h1 className='animate__animated animate__backInLeft forheadline underline  text-center font-bold text-4xl mt-10'>Step By Step Grow Your Skill</h1>
         <div className='grid max-md:grid-cols-1 max-lg:grid-cols-2 grid-cols-3 gap-5 my-10 w-11/12 m-auto'>

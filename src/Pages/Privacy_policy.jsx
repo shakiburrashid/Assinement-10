@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Privacy_policy = () => {
   return (
-    <div className='mx-20 max-md:mx-10 text- my-10'>
+    <div className='mx-20 max-md:mx-10 my-10'>
       <h1 className='text-5xl font-bold text-center my-5 underline max-md:text-3xl'>Privacy Policy</h1>
       <p className='text-3xl max-md:text-2xl'><strong>Effective Date:</strong> {new Date().toLocaleDateString()}</p>
       <p className='text-xl'>Your privacy is very important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our platform.</p>
@@ -31,7 +31,7 @@ const Privacy_policy = () => {
       <h1 className='text-3xl font-bold text-left my-5 max-md:text-2xl'>Changes to This Privacy Policy</h1>
       <p className='text-xl'>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
       <h1 className='text-3xl font-bold text-left my-5 max-md:text-2xl'>Contact Us</h1>
-      <p className='text-xl'>If you have any questions about this Privacy Policy, please contact us at learn247@gmail.com or<Link to={'/contact'} className='btn btn-link'>Contact Us</Link></p>
+      <p className='text-xl'>If you have any questions about this Privacy Policy, please contact us at learn247@gmail.com or<Link to={'/contact'} className='btn btn-link font-bold text-xl'>Contact Us</Link></p>
     </div>
   )
 }

@@ -5,6 +5,7 @@ const Contact = () => {
   const submitData = (event) => {
       event.preventDefault();
       toast.success('Form submitted successfully!');
+      event.target.reset();
     }
   return (
     <div>
